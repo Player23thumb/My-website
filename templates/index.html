@@ -1,15 +1,11 @@
-{% extends base.html %}
+{% extends "base.html" %}
 {% block style %}
         <link rel="stylesheet" href="{{ url_for('static', filename='Style.css') }}">
 {% endblock %}
-        <div class="topnav">
-            <a class="active" href="{{ url_for('template', filename='index.html') }}">Home</a>
-            <a href="{{ url_for('template', filename='about.html') }}">About</a>
-        </div>
+{% block content %}      
         <h1>Home page</h1>
         <h2>Recent Updates:</h2>
         <li>
             <p>This is my website project.</p>
         </li>
-    </body>
-</html>
+{% endblock %}
