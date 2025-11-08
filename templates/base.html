@@ -6,6 +6,13 @@
   <title>{% block title %}Liam's website{% endblock %}</title>
 </head>
 <body>
+  <ul class="topnav">
+    {% for item in nav.top %}
+    <li class="{{ 'active' if item.is_active else '' }}">
+        <a href="{{ item.url }}">{{ item.label }}</a>
+    </li>
+    {% endfor %}
+  <ul>
   {% block content %}{% endblock %}
 </body>
 </html>
