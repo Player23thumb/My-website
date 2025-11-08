@@ -6,13 +6,13 @@ p {
     outline-style: dashed;
     margin: auto;
 }
-a {
+.profileLink a {
     background-color: white;
     padding: 14px 25px;
     color: orange;
     text-align: center;
     display: inline-block;
 }
-a:hover {
+.profileLink a:hover {
     background-color: blue;
 }
