@@ -1,6 +1,6 @@
 # imports
 from flask import Flask, render_template, request
-import src.calculator_functions
+import src.calculator_functions as cf
 
 app = Flask(__name__)
 
