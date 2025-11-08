@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="Style.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='Style.css') }}">
         <title>Chemistry</title>
     </head>
     <body>
         <div class="topnav">
-            <a class="active" href="index.html">Home</a>
-            <a href="about.html">About</a>
+            <a class="active" href="{{ url_for('template', filename='index.html') }}">Home</a>
+            <a href="{{ url_for('template', filename='about.html') }}">About</a>
         </div>
         <h1>Home page</h1>
         <h2>Recent Updates:</h2>
