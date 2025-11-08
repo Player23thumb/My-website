@@ -8,9 +8,9 @@
 <body>
   <ul class="topnav">
     {% for item in nav.top %}
-    <li class="{{ 'active' if item.is_active else '' }}">
+    <div class="{{ 'active' if item.is_active else '' }}">
         <a href="{{ item.url }}">{{ item.label }}</a>
-    </li>
+    </div>
     {% endfor %}
   <ul>
   {% block content %}{% endblock %}
