@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
+{% extends base.html %}
+{% block style %}
         <link rel="stylesheet" href="{{ url_for('static', filename='Style.css') }}">
-        <title>Chemistry</title>
-    </head>
-    <body>
+{% endblock %}
         <div class="topnav">
             <a class="active" href="{{ url_for('template', filename='index.html') }}">Home</a>
             <a href="{{ url_for('template', filename='about.html') }}">About</a>
