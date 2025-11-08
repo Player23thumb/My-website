@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <link rel="stylesheet" href="Style.css">
-        <link rel="stylesheet" href="about.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='Style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
         <title>Chemistry</title>
     </head>
     <body>
         <div class="topnav">
-            <a href="index.html">Home</a>
-            <a class="active" href="about.html">About</a>
+            <a href="{{ render_template('templates', filename='index.html') }}">Home</a>
+            <a class="active" href="{{ url_for('templates', about.html }}">About</a>
         </div>
         <h1>About Me:</h1>
         <p>I am Liam Kemp and my favourite subjects are chemistry, mathematics and computing. I like to study particles, bonding, algorithms, and trends in data. I wish to eventually become a proffesor in chemistry.</p>
