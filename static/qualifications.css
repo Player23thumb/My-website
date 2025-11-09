@@ -2,3 +2,10 @@ h1 {
   text-align: center;
   font-weight: bold;
 }
+ul {
+  border-block: 5px dotted green;
+}
+li {
+  color: lilac;
+  list-style-type: square;
+}
