@@ -35,7 +35,11 @@ def about():
 @app.route('/qualifications', methods=['GET', 'POST'])
 def qualifications():
     if request.method == "POST":
-        return render_template('qualifications.html')
-    return render_template('qualifications.html')
+        qualifications_list = ['Chemistry (AQA, triple, higher) - grade 7', 'Physics (AQA, triple, higher) - grade 7', 'Biology (AQA, triple, higher) - grade 6', 
+                               'Mathematics (Edexcel, higher) - grade 8', 'Statistics (Edexcel, higher) - grade 6', 'Further mathematics (AQA) - grade 7',
+                               'Geography (AQA) - grade 6', 'English Language (AQA) - grade 7', 'English Literature (AQA) - grade 6',
+                               'Spanish (Edexcel, higher) - grade 6']
+        return render_template('qualifications.html', qualifications_list=qualifications_list)
+    return render_template('qualifications.html', qualifications_list=qualifications_list)
 
 app.run(debug=True)
