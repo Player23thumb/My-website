@@ -6,13 +6,28 @@
   <title>{% block title %}Liam's website{% endblock %}</title>
 </head>
 <body>
-  <ul class="topnav">
-    {% for item in nav.top %}
-    <div class="{{ 'active' if item.is_active else '' }}">
+  <header>
+    <ul class="topnav">
+      {% for item in nav.top %}
+      <div class="{{ 'active' if item.is_active else '' }}">
         <a href="{{ item.url }}">{{ item.label }}</a>
-    </div>
-    {% endfor %}
-  <ul>
-  {% block content %}{% endblock %}
+      </div>
+      {% endfor %}
+      <div>
+        <label class="switch">
+          <input type="checkbox" id="check">
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </ul>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <p>My email: liam.kemp09@icloud.com</p>
+  </footer>
+  <script src="{{ url_for('static', filename='feedback.js') }}"></script>
 </body>
 </html>
