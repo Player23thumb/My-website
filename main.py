@@ -17,7 +17,8 @@ nav = Navigation(app)
 nav.Bar('top', [
     nav.Item('Home', 'index'),
     nav.Item('About', 'about'),
-    nav.Item('Qualifications', 'qualifications')
+    nav.Item('Qualifications', 'qualifications'),
+    nav.Item('Feedback', 'feedback')
 ])
 
 @app.route('/', methods=['GET', 'POST'])
@@ -42,5 +43,16 @@ def qualifications():
         return render_template('qualifications.html', qualifications_list=qualifications)
     return render_template('qualifications.html', qualifications_list=qualifications)
 
-app.run(debug=True)
+@app.route('/feedback', methods=['GET', 'POST'])
+def feedback():
+    if request.method == "POST":
+        likeThisWebsite = request.form.get('checkbox')
+        opinion = request.form.get('opinion')
+        if likeThisWebsite == None:
+            likeThisWebsite = 'OFF'
+        with open('form', 'a') as form:
+            form.write(likeThisWebsite + opinion)
+        return render_template('feedback.html')
+    return render_template('feedback.html')
 
+app.run(debug=True)
