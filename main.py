@@ -16,7 +16,8 @@ nav = Navigation(app)
 
 nav.Bar('top', [
     nav.Item('Home', 'index'),
-    nav.Item('About', 'about')
+    nav.Item('About', 'about'),
+    nav.Item('Qualifications', 'qualifications')
 ])
 
 @app.route('/', methods=['GET', 'POST'])
@@ -30,5 +31,11 @@ def about():
     if request.method == "POST":
             return render_template('about.html')
     return render_template('about.html')
+
+@app.route('/qualifications', methods=['GET', 'POST'])
+def qualifications():
+    if request.method == "POST":
+        return render_template('qualifications.html')
+    return render_template('qualifications.html')
 
 app.run(debug=True)
