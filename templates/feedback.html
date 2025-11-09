@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='Style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='feedback.css')}}">
+{% endblock %}
+{% block content %}
+  <form method="POST">
+    <label>Do you like this website?</label><input type="checkbox" name="checkbox">
+    <label>What could be improved?</label><input type="text" name="opinion">
+    <input type="submit" name="submit">
+  </form>
+{% endblock %}
