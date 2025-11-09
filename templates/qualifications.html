@@ -4,4 +4,10 @@
 [% endblock %}
 {% block content %}
   <h1> My qualifications </h1>
+  <h2>GCSEs:</h2>
+  <ul>
+    {% for i in qualification_list %}
+      <li>{{ i }}</li>
+    {% endfor %}
+  </ul>
 {% endblock %}
