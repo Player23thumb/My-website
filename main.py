@@ -54,5 +54,3 @@ def feedback():
             form.write(likeThisWebsite + opinion)
         return render_template('feedback.html')
     return render_template('feedback.html')
-
-app.run(debug=True)
