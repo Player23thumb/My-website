@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import src.calculator_functions as cf
+import os
 
 # Patch old-style imports used by flask_navigation
 import flask
@@ -54,3 +55,7 @@ def feedback():
             form.write(likeThisWebsite + opinion)
         return render_template('feedback.html')
     return render_template('feedback.html')
+
+if __name__ == "__main__":
+  port = int(os.enviorn.get("PORT", 4000))
+  app.run(host="0.0.0.0", port=port)
