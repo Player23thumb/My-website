@@ -80,6 +80,9 @@ class Wall():
     def __init__(self, x, y):
         self.rect = pygame.Rect(x, y, TILE_SIZE, TILE_SIZE)
         self.color = GREY
+        
+    def draw(self, screen):
+        pygame.draw.rect(screen, self.color, self.rect)
 
 player = Player(60, 60)
 monster = Monster(40, 100)
