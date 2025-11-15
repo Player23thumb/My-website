@@ -97,7 +97,8 @@ class door(Wall):
 
 player = Player(60, 60)
 monster = Monster(40, 100)
-x = []
+n = []
+
 # --- Draw the map ---
 def draw_room():
     for row_index, row in enumerate(ROOM_MAP):
@@ -108,7 +109,8 @@ def draw_room():
                 door(x, y).draw(SCREEN)
             elif tile == 1:
                 Wall(x, y).draw(SCREEN)
-                x += (x, y)
+                r = [(x, y)]
+                n.extend(r)
             else:
                 pygame.draw.rect(SCREEN, BLACK, (x, y, TILE_SIZE, TILE_SIZE))
 
@@ -123,8 +125,9 @@ while True:
     # Update
     player.handle_input()
     monster.move_mon()
-    if not player.is_colliding(Wall(TILE_SIZE, TILE_SIZE)):
-        player.move_down()
+    for a, b in n:
+        if not player.is_colliding(Wall(a, b)):
+            player.move_down()
 
     # Draw
     SCREEN.fill(BLACK)
