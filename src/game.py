@@ -43,14 +43,14 @@ class Charater:
     def draw(self, screen):
         pygame.draw.rect(screen, self.color, self.rect)
     
-    def is_colliding(self, other):
-        return self.rect.colliderect(other.rect)
+    def is_colliding(self, a, b):
+        return self.rect.collidepoint(a, b)
 
 class Player(Charater):
     def __init__(self, x, y):
         super().__init__(x, y)
         self.color = GREEN
-        self.speed = 4
+        self.speed = 0.5
 
     def handle_input(self):
         keys = pygame.key.get_pressed()
@@ -58,9 +58,13 @@ class Player(Charater):
             self.rect.x -= self.speed
         if keys[pygame.K_d]:
             self.rect.x += self.speed
+        if keys[pygame.K_w]:
+            self.rect.y -= self.speed
+        if keys[pygame.K_s]:
+            self.rect.y += self.speed
     
     def move_down(self):
-        self.rect.y += self.speed
+        self.rect.y -= self.speed
 
 class Monster(Charater):
     def __init__(self, x, y):
@@ -125,8 +129,7 @@ while True:
     # Update
     player.handle_input()
     monster.move_mon()
-    for a, b in n:
-        if not player.is_colliding(Wall(a, b)):
+    if  player.is_colliding(monster.rect.x, monster.rect.y):
             player.move_down()
 
     # Draw
