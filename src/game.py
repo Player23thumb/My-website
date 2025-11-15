@@ -42,6 +42,9 @@ class Charater:
 
     def draw(self, screen):
         pygame.draw.rect(screen, self.color, self.rect)
+    
+    def is_colliding(self, other):
+        return self.rect.colliderect(other.rect)
 
 class Player(Charater):
     def __init__(self, x, y):
@@ -80,6 +83,14 @@ class Wall():
     def __init__(self, x, y):
         self.rect = pygame.Rect(x, y, TILE_SIZE, TILE_SIZE)
         self.color = GREY
+        
+    def draw(self, screen):
+        pygame.draw.rect(screen, self.color, self.rect)
+        
+class door(Wall):
+    def __init__(self, x, y):
+        super().__init__(x, y)
+        self.color = BLUE
         
     def draw(self, screen):
         pygame.draw.rect(screen, self.color, self.rect)
