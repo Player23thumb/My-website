@@ -105,9 +105,9 @@ def draw_room():
             x = col_index * TILE_SIZE
             y = row_index * TILE_SIZE
             if tile == 2:
-                pygame.draw.rect(SCREEN, BLUE, (x, y, TILE_SIZE, TILE_SIZE))
-            if tile == 1:
-                pygame.draw.rect(SCREEN, GREY, (x, y, TILE_SIZE, TILE_SIZE))
+                door(x, y).draw(SCREEN)
+            elif tile == 1:
+                Wall(x, y).draw(SCREEN)
             else:
                 pygame.draw.rect(SCREEN, BLACK, (x, y, TILE_SIZE, TILE_SIZE))
 
