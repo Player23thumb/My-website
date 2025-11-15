@@ -50,7 +50,7 @@ class Player(Charater):
     def __init__(self, x, y):
         super().__init__(x, y)
         self.color = GREEN
-        self.speed = 0.5
+        self.speed = 4
 
     def handle_input(self):
         keys = pygame.key.get_pressed()
@@ -129,8 +129,10 @@ while True:
     # Update
     player.handle_input()
     monster.move_mon()
-    if  player.is_colliding(monster.rect.x, monster.rect.y):
-            player.move_down()
+    if  player.rect.colliderect(monster.rect):
+        print("Game Over!")
+        pygame.quit()
+        sys.exit()
 
     # Draw
     SCREEN.fill(BLACK)
