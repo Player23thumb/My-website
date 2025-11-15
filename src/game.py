@@ -65,6 +65,13 @@ class Player(Charater):
     
     def move_down(self):
         self.rect.y -= self.speed
+    
+    def col(self):
+        collisions = []
+        for obj in objects:
+            if self.rect.colliderect(obj.rect):
+                collisions.append(obj)
+            return collisions
 
 class Monster(Charater):
     def __init__(self, x, y):
@@ -101,10 +108,11 @@ class door(Wall):
 
 player = Player(60, 60)
 monster = Monster(40, 100)
-n = []
+walls = []
 
 # --- Draw the map ---
 def draw_room():
+    walls.clear()
     for row_index, row in enumerate(ROOM_MAP):
         for col_index, tile in enumerate(row):
             x = col_index * TILE_SIZE
@@ -112,9 +120,9 @@ def draw_room():
             if tile == 2:
                 door(x, y).draw(SCREEN)
             elif tile == 1:
-                Wall(x, y).draw(SCREEN)
-                r = [(x, y)]
-                n.extend(r)
+                w = Wall(x, y)
+                w.draw(SCREEN)
+                walls.append(w)
             else:
                 pygame.draw.rect(SCREEN, BLACK, (x, y, TILE_SIZE, TILE_SIZE))
 
