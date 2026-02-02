@@ -19,7 +19,8 @@ nav.Bar('top', [
     nav.Item('Home', 'index'),
     nav.Item('About', 'about'),
     nav.Item('Qualifications', 'qualifications'),
-    nav.Item('Feedback', 'feedback')
+    nav.Item('Feedback', 'feedback'),
+    nav.Item('Awards', 'awards')
 ])
 
 @app.route('/', methods=['GET', 'POST'])
