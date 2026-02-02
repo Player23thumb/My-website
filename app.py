@@ -56,6 +56,13 @@ def feedback():
         return render_template('feedback.html')
     return render_template('feedback.html')
 
+@app.route('/awards', methods=['GET', 'POST'])
+def awards():
+    if request.method == "POST":
+        awards = ['Duke of Edinburgh Bronze Award', 'Senior Mathematics Challenge - Participant Certificate']
+        return render_template('awards.html', awards_list=awards)
+    return render_template('awards.html')
+
 if __name__ == "__main__":
   port = int(os.environ.get("PORT", 4000))
   app.run(host="0.0.0.0", port=port)
